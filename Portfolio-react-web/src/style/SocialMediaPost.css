@@ -1,0 +1,149 @@
+.post-container {
+  width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  background-color: white;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.brand-info h2 {
+  margin: 0;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.brand-info p {
+  margin: 0;
+  margin-left: 10px;
+  font-size: 12px;
+  color: gray;
+}
+
+.menu-button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.post-content {
+  position: relative;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;  
+}
+
+.actions-button {
+  background-color: #ffffff;
+  border: none; 
+  cursor: pointer; 
+}
+
+
+.post-stats {
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+  border: none;
+}
+
+.post-image {
+  width: 100%;
+  max-width: 600px;  
+  height: 600px;
+}
+.comment-section {
+  display: flex; /* Aligns children (img, input, button) in a row */
+  align-items: center; /* Centers items vertically */
+  gap: 8px; /* Adds space between items */
+}
+
+.user-comment-image {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Make it a square for the circle effect */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image covers the area without being distorted */
+}
+
+.comment-user-image {
+  width: 40px; /* or any other dimensions */
+  height: 40px;
+  border-radius: 50%; /* makes the image circular */
+  margin-right: 10px; /* adds space between the image and the text */
+}
+
+
+.comment-input {
+  flex-grow: 1; /* Takes up remaining space */
+  margin-right: 8px; /* Optional: adds some spacing between the input and the button */
+}
+
+.publish-button{
+  background-Color: #FFFFFF;
+  border : 0;
+  border-Radius: 5;
+  cursor: pointer;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+}
+
+.comment p {
+  margin-left: 8px;
+}
+
+.comment-container {
+  padding: 1px;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-text {
+  flex: 1;
+}
+
+.copy-success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4); /* Dimmed background */
+  z-index: 1050; /* Make sure it's above other content */
+}
+
+.copy-success-message {
+  padding: 20px 30px;
+  background-color: #ffffff; /* White background */
+  color: #333; /* Dark text */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-size: 16px;
+  text-align: center;
+}

@@ -1,0 +1,37 @@
+
+
+trigger:
+  - main
+
+pool:
+  name: 'CD-Agent' 
+  demands:
+  - agent.name -equals DESKTOP-J1FCR33
+
+variables:
+  buildDirectory: 'build'
+  productionDirectory: 'C:\site\front2'
+
+steps:
+- checkout: self
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '21.x'
+  displayName: 'Installer Node.js'
+
+- script: |
+    npm install
+  displayName: 'Installer les dépendances'
+  workingDirectory: $(Build.SourcesDirectory)
+
+- script: |
+    echo "Démarrage du build..."
+    npm run build
+    echo "Build terminé"
+  displayName: 'Build de lapplication React'
+  workingDirectory: $(Build.SourcesDirectory)
+
+- script: |
+    copy $(Build.SourcesDirectory)\$(buildDirectory) $(productionDirectory)
+  displayName: "Déployer l'application React dans le répertoire de production"

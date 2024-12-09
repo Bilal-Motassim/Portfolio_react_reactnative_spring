@@ -1,0 +1,85 @@
+.post-creator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.post-input textarea {
+  flex-grow: 1;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 10px;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.post-input:focus, .post-input textarea:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.25);
+}
+
+.post-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.option-button, .publish-button {
+  background-color: #FFFFFF;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  margin: 5px;
+}
+
+.option-button:hover, .publish-button:hover {
+  background-color: #f8f8f8;
+}
+
+.post-attached {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+#file-upload {
+  display: none;
+}
+
+.post-top {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.profile-pic-and-input {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.post-textarea {
+  flex-grow: 1;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  width: 580px;
+  padding: 10px;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}

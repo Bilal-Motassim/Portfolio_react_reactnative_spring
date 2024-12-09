@@ -1,0 +1,78 @@
+services:
+  api:
+    container_name: api
+    build: ./Portfolio-spring-boot
+    ports:
+      - 8080:8080
+    env_file:
+      - ./Portfolio-spring-boot/.env
+    depends_on:
+      - db
+    networks:
+      - net1
+
+  web:
+    container_name: web
+    build: ./Portfolio-react-web
+    volumes:
+      - ./Portfolio-react-web:/app
+      - /app/node_modules
+    depends_on:
+      - db
+      - api
+    ports:
+      - 3000:3000
+    networks:
+      - net1
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: ./Portfolio-react-web
+    #       target: /app
+    #       ignore:
+    #         - node_modules/
+    #     - action: rebuild
+    #       path: package.json
+
+  mobile:
+    container_name: mobile
+    build: Portfolio-react-native
+    ports:
+      - 8081:8081
+    volumes:
+      - ./Portfolio-react-native:/opt/my-app
+      - /opt/my-app/node_modules
+    depends_on:
+      - db
+      - api
+    networks:
+      - net1
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: ./Portfolio-react-native
+    #       target: /opt/my-app
+    #       ignore:
+    #         - node_modules/
+    
+
+  db:
+    container_name: db-bilal
+    image: mysql:8.3
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: portf
+      MYSQL_USER: ussr
+      MYSQL_PASSWORD: 123
+    volumes:
+      - portfolio:/var/lib/mysql
+    networks:
+      - net1
+    ports:
+      - 3306:3306
+
+volumes:
+  portfolio:
+
+networks:
+  net1:

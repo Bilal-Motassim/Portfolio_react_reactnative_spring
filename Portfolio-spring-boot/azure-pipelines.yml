@@ -1,0 +1,24 @@
+trigger:
+- main
+
+pool:
+  name: 'CD-Agent'
+  demands:
+  - agent.name -equals DESKTOP-J1FCR33
+
+variables:
+  buildConfigPath: 'src/main/resources/application.properties'
+  artifactName: '$(Build.BuildNumber)-$(Build.DefinitionName).war'
+  targetDirectory: 'C:\apache-tomcat-10.1.23\webapps'
+
+steps:
+- checkout: self
+
+- script: |
+    mvn package
+  displayName: 'Build the application'
+  workingDirectory: $(Build.SourcesDirectory)
+
+- script: |
+    copy $(Build.SourcesDirectory)\target\portfolio-0.1.war $(targetDirectory)
+  displayName: 'Copy JAR file to target directory'
